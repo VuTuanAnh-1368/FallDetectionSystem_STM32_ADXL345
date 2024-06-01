@@ -7,4 +7,4 @@
   E:\NMHTN\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h \
   E:\NMHTN\Pack\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h \
   E:\NMHTN\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h \
-  i2c_Lcd.h i2c.h systick.h adxl345.h
+  i2c_lcd.h i2c.h systick.h adxl345.h

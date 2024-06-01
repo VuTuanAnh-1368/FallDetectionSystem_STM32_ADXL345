@@ -84,6 +84,7 @@ Status i2c_stop(uint8_t i2c){
 	}else if(i2c == I2C_2){
 		I2C2->CR1 |= (1 << 9);
 	}
+
 	return Success;
 }
 

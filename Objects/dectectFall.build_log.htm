@@ -27,29 +27,32 @@ Project File Date:  06/01/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.21', folder: 'E:\NMHTN\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
-systick.c(28): warning: ordered comparison between pointer and integer ('uint32_t (*)()' (aka 'unsigned int (*)()') and 'unsigned long')
-   28 |         while((get_tick - current) < t){}
+main.c(37): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+   37 |         snprintf(buffer, sizeof(buffer), "X: %.2f m/s<B2>", x);
+      |                                                      ^~~~
+main.c(40): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+   40 |         snprintf(buffer, sizeof(buffer), "Y: %.2f m/s<B2>", y);
+      |                                                      ^~~~
+main.c(43): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+   43 |         snprintf(buffer, sizeof(buffer), "Z: %.2f m/s<B2>", z);
+      |                                                      ^~~~
+3 warnings generated.
+compiling main.c...
+assembling startup_stm32f10x_md.s...
+systick.c(32): warning: ordered comparison between pointer and integer ('uint32_t (*)()' (aka 'unsigned int (*)()') and 'unsigned long')
+   32 |         while((get_tick - current) < t){}
       |               ~~~~~~~~~~~~~~~~~~~~ ^ ~
 1 warning generated.
 compiling systick.c...
-compiling main.c...
-assembling startup_stm32f10x_md.s...
-adxl345.c(6): warning: passing 'uint8_t[2]' (aka 'unsigned char[2]') to parameter of type 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-    6 |     i2c_write(I2C_2, ADXL345_ADDRESS << 1, data);
-      |                                            ^~~~
-./i2c.h(29): note: passing argument to parameter 'data' here
-   29 | Status i2c_write(uint8_t i2c, char address, char data[]);
-      |                                                  ^
-1 warning generated.
 compiling adxl345.c...
-compiling i2c_Lcd.c...
 compiling gpio.c...
+compiling i2c_Lcd.c...
 compiling i2c.c...
 compiling system_stm32f10x.c...
 linking...
-Program Size: Code=4448 RO-data=268 RW-data=4 ZI-data=1640  
+Program Size: Code=9296 RO-data=444 RW-data=4 ZI-data=1640  
 FromELF: creating hex file...
-".\Objects\dectectFall.axf" - 0 Error(s), 2 Warning(s).
+".\Objects\dectectFall.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -80,7 +83,7 @@ Package Vendor: Keil
       Source file:   Device/Source/system_stm32f10x.c
       Include file:  RTE_Driver/Config/RTE_Device.h
       Source file:   Device/Source/ARM/STM32F1xx_OPT.s
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
