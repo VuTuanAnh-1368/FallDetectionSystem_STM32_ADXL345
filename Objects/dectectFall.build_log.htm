@@ -1,0 +1,86 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.39.0.0
+Copyright (C) 2023 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: VU TUAN ANH, VTA, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.39.0.0
+Toolchain Path:  E:\NMHTN\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.21
+Assembler:       Armasm.exe V6.21
+Linker/Locator:  ArmLink.exe V6.21
+Library Manager: ArmAr.exe V6.21
+Hex Converter:   FromElf.exe V6.21
+CPU DLL:         SARMCM3.DLL V5.39.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.2.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+E:\NMHTN\examples\DectecFall\dectectFall.uvprojx
+Project File Date:  06/01/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.21', folder: 'E:\NMHTN\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+systick.c(28): warning: ordered comparison between pointer and integer ('uint32_t (*)()' (aka 'unsigned int (*)()') and 'unsigned long')
+   28 |         while((get_tick - current) < t){}
+      |               ~~~~~~~~~~~~~~~~~~~~ ^ ~
+1 warning generated.
+compiling systick.c...
+compiling main.c...
+assembling startup_stm32f10x_md.s...
+adxl345.c(6): warning: passing 'uint8_t[2]' (aka 'unsigned char[2]') to parameter of type 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+    6 |     i2c_write(I2C_2, ADXL345_ADDRESS << 1, data);
+      |                                            ^~~~
+./i2c.h(29): note: passing argument to parameter 'data' here
+   29 | Status i2c_write(uint8_t i2c, char address, char data[]);
+      |                                                  ^
+1 warning generated.
+compiling adxl345.c...
+compiling i2c_Lcd.c...
+compiling gpio.c...
+compiling i2c.c...
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=4448 RO-data=268 RW-data=4 ZI-data=1640  
+FromELF: creating hex file...
+".\Objects\dectectFall.axf" - 0 Error(s), 2 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM::CMSIS@5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil::STM32F1xx_DFP@2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/STM32F103C8
+  ./RTE/_Target_1
+  E:/NMHTN/Pack/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  E:/NMHTN/Pack/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE@5.6.0
+
+   * Component: Keil::Device:Startup@1.0.0
+      Source file:   Device/Source/ARM/startup_stm32f10x_md.s
+      Source file:   Device/Source/system_stm32f10x.c
+      Include file:  RTE_Driver/Config/RTE_Device.h
+      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>
