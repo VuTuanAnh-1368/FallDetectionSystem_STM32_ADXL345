@@ -41,5 +41,5 @@
 void ADXL345_Init(uint8_t i2c);
 uint8_t ADXL345_ReadReg(uint8_t i2c, uint8_t reg);
 void ADXL345_WriteReg(uint8_t i2c, uint8_t reg, uint8_t value);
-void ADXL345_ReadXYZ(uint8_t i2c, float* x, float* y, float* z);
+void ADXL345_ReadXYZ(uint8_t i2c, float* x, float* y, float* z, float *grav_x, float *grav_y, float *grav_z);
 #endif

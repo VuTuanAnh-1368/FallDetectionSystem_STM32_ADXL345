@@ -2,9 +2,13 @@
 #include "i2c_lcd.h"
 #include "systick.h"
 #include "i2c.h"
+#include "stdio.h"
 
 #define SCALE_FACTOR 256.0  // Scale factor for ±2g range
 #define GRAVITY 9.80665  // Gravity constant for converting g to m/s²
+
+float coeff = 0.8;
+	
 
 void ADXL345_Init(uint8_t i2c) {
     // Initialize I2C if not already initialized
@@ -44,7 +48,7 @@ void ADXL345_WriteReg(uint8_t i2c, uint8_t reg, uint8_t value) {
     i2c_stop(i2c);
 }
 
-void ADXL345_ReadXYZ(uint8_t i2c, float* x, float* y, float* z) {
+void ADXL345_ReadXYZ(uint8_t i2c, float* x, float* y, float* z, float *grav_x, float *grav_y, float *grav_z) {
     uint8_t data[6];
     int16_t raw_x, raw_y, raw_z;
 
@@ -62,6 +66,13 @@ void ADXL345_ReadXYZ(uint8_t i2c, float* x, float* y, float* z) {
     *x = (raw_x / SCALE_FACTOR) * GRAVITY;
     *y = (raw_y / SCALE_FACTOR) * GRAVITY;
     *z = (raw_z / SCALE_FACTOR) * GRAVITY;
+	
+	  *grav_x = *grav_x * coeff + (1 - coeff)*(*x);
+    *grav_y = *grav_y * coeff + (1 -coeff)*(*y);
+    *grav_z = (*grav_z) *  coeff + (1 - coeff)*(*z);
+		*x = *x - (*grav_x);
+		*y = *y - (*grav_y);
+		*z = *z - (*grav_z);
 }
 
 uint8_t ADXL345_ReadReg(uint8_t i2c, uint8_t reg) {

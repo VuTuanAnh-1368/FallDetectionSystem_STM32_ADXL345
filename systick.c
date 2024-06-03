@@ -35,7 +35,7 @@ void delay_us(unsigned long t)
 void delay_ms(unsigned long t)
 {
  uint32_t current = get_tick();
-    while((get_tick() - current) < (t * 1000)){}
+ while((get_tick() - current) < (t * 1000)){}
  for(int i = 0; i < t; i++){
 	 delay_us(1000);
  }

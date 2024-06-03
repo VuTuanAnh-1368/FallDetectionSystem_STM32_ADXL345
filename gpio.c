@@ -31,7 +31,7 @@ void gpio_init(unsigned short PORT, unsigned short PIN, unsigned short CNF, unsi
 	}else if(PORT == PortC){
 		RCC->APB2ENR |= (1 << 4); // enable GPIOC
 		if(PIN < 8 ){
-			GPIOC->CRL &= ~(uint32_t)((0xF) << (PIN * 4) *4); // clear 4 bit in config register
+			GPIOC->CRL &= ~(uint32_t)((0xF) << (PIN) *4); // clear 4 bit in config register
 			GPIOC->CRL |= (MODE) << (PIN * 4);
 			GPIOC->CRL |=  (CNF) << (PIN * 4 + 2);
 		}
