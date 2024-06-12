@@ -13,18 +13,16 @@ uint32_t get_tick(){
 	return tick_count;
 }
 
-void systick_init(void)
-{
-	__disable_irq();
-	SysTick->CTRL = 0;
-	SysTick->LOAD = SystemCoreClock / 1000000 ;
-	NVIC_SetPriority(SysTick_IRQn, 15);
-	SysTick->VAL = 0;
-	SysTick->CTRL = 7; // clk source = 1, tickint = 0, enable = 1
-	NVIC_EnableIRQ(SysTick_IRQn);
-	__enable_irq();
+void systick_init(void) {
+    __disable_irq();
+    SysTick->CTRL = 0;
+    SysTick->LOAD = SystemCoreClock / 1000000-1; 
+    NVIC_SetPriority(SysTick_IRQn, 15);
+    SysTick->VAL = 0;
+    SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk;
+    NVIC_EnableIRQ(SysTick_IRQn);
+    __enable_irq();
 }
-
 
 void delay_us(unsigned long t)
 {

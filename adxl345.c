@@ -12,25 +12,29 @@ float coeff = 0.8;
 
 void ADXL345_Init(uint8_t i2c) {
     // Initialize I2C if not already initialized
+	  lcd_i2c_cmd(I2C_1, 0x01);
     i2c_init(i2c, I2C_FM);
-
+	
+	  delay_ms(500);
     // Debug message to indicate start of initialization
     lcd_i2c_msg(I2C_1, 1, 0, "ADXL345 Init Start");
-    delay_ms(1000);
+    delay_ms(500);
     lcd_i2c_cmd(I2C_1, 0x01);
 
     // Set power control to measure mode
+	  delay_ms(500);
     lcd_i2c_msg(I2C_1, 1, 0, "Setting Power Ctrl");
-    delay_ms(1000);
-    lcd_i2c_cmd(I2C_1, 0x01);
+    delay_ms(500);
+	  lcd_i2c_cmd(I2C_1, 0x01);
     ADXL345_WriteReg(i2c, ADXL345_POWER_CTL, 0x08);
 
     // Set data format to full resolution with ±2g range
+	  delay_ms(500);
     lcd_i2c_msg(I2C_1, 1, 0, "Setting Data Format");
     delay_ms(1000);
     lcd_i2c_cmd(I2C_1, 0x01);
     ADXL345_WriteReg(i2c, ADXL345_DATA_FORMAT, 0x08);
-    delay_ms(1000);
+    delay_ms(500);
 
     // Set data rate to 100 Hz
     lcd_i2c_msg(I2C_1, 1, 0, "Setting Data Rate");

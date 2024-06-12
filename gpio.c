@@ -76,7 +76,7 @@ void gpio_write(unsigned short PORT, unsigned short PIN, unsigned short PinState
 }
 
 uint8_t gpio_read(unsigned short PORT, unsigned short PIN){
-    uint32_t pin_mask = (1 << PIN);  // Chuy?n d?i PIN thành giá tr? bit
+    uint32_t pin_mask = (1 << PIN);  // Convert PIN to Bit
     switch (PORT) {
         case PortA:
             return ((GPIOA->IDR & pin_mask) != 0) ? GPIO_PIN_SET : GPIO_PIN_RESET;

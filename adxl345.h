@@ -35,7 +35,6 @@
 #define ADXL345_DATAZ1         0x37
 #define ADXL345_FIFO_CTL       0x38
 #define ADXL345_FIFO_STATUS    0x39
-
 #define ADXL345_ADDRESS        0x53
 
 void ADXL345_Init(uint8_t i2c);
