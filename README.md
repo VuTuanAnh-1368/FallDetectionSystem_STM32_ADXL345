@@ -5,7 +5,9 @@ This project utilizes the STM32F103C8T6 microcontroller and the ADXL345 accelero
 
 ### Features
 Fall Detection: Automatically detects a fall using the ADXL345 accelerometer.
+
 Status Display: Real-time system status displayed on a 16x02 LCD.
+
 LED Indicators:
 - Red LED flashes at 2 Hz to signal a fall.
 - Green LED blinks at 1 Hz to indicate the system is active.
