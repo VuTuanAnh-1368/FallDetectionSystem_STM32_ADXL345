@@ -16,13 +16,13 @@ System Controls:
 ![image](https://github.com/VuTuanAnh-1368/FallDetectionSystem_STM32_ADXL345/assets/92041804/320859c2-960b-4686-93ab-26254740985a)
 
 ### Inputs
-ADXL345 Accelerometer: Detects fall based on sudden changes in acceleration.
-SW1: Toggles the operational state of the system.
-SW2: Resets the system to its initial state.
+- ADXL345 Accelerometer: Detects fall based on sudden changes in acceleration.
+- SW1: Toggles the operational state of the system.
+- SW2: Resets the system to its initial state.
 ### Outputs
-Green LED: Blinks at a frequency of 1Hz when the system is operational; off when inactive.
-Red LED: Flashes at a frequency of 2Hz when a fall is detected; off when the system is in normal state.
-LCD Display: Shows 0 - Normal, 1 - Fall Detected based on the system's current status.
+- Green LED: Blinks at a frequency of 1Hz when the system is operational; off when inactive.
+- Red LED: Flashes at a frequency of 2Hz when a fall is detected; off when the system is in normal state.
+- LCD Display: Shows 0 - Normal, 1 - Fall Detected based on the system's current status.
 ### Software Configuration
 Download and Install Keil uVision 5:
 
