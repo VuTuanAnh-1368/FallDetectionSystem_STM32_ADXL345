@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "gpio.h"
-#include "i2c_lcd.h"
+#include "i2c_Lcd.h"
 #include "systick.h"
 #include "stm32f10x.h"
 #include "adxl345.h"
