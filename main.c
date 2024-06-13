@@ -146,7 +146,7 @@ void control_leds(void) {
     uint32_t current_tick = get_tick();
 
     if (system_state == ACTIVE) {
-        if (current_tick - last_tick_green >= 1000000) {  // Toggle every 1 second (1Hz blink)
+        if (current_tick - last_tick_green >= 500000) {  // Toggle every 1 second (1Hz blink)
             GPIOA->ODR ^= (1 << GREEN_LED_PIN);
             last_tick_green = current_tick;
         }
@@ -156,7 +156,7 @@ void control_leds(void) {
 
     if (fall_status == FALL) {
 			 // GPIOA->BRR = (1 << GREEN_LED_PIN); // Turn off green LED
-        if (current_tick - last_tick_red >= 500000) {  // Toggle every 0.5 second (2Hz blink)
+        if (current_tick - last_tick_red >= 250000) {  // Toggle every 0.5 second (2Hz blink)
             GPIOA->ODR ^= (1 << RED_LED_PIN);
             last_tick_red = current_tick;
         }
