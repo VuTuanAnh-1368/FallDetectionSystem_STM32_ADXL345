@@ -53,13 +53,11 @@ int main(void) {
 	  delay_ms(1000);
 
     while (1) { 
-			  lcd_i2c_cmd(I2C_1, 0x01);
+	lcd_i2c_cmd(I2C_1, 0x01);
         if (system_state == ACTIVE) {
             ADXL345_ReadXYZ(I2C_2, &x, &y, &z, &grav_x, &grav_y, &grav_z);
-
             detect_fall(x, y, z);
-
-					  lcd_i2c_cmd(I2C_1, 0x01);
+	    lcd_i2c_cmd(I2C_1, 0x01);
             if (fall_status == FALL) {
                 snprintf(buffer, sizeof(buffer), "1 - Fall Detected");
             } else {
@@ -67,10 +65,10 @@ int main(void) {
             }
             lcd_i2c_msg(I2C_1, 1, 0, buffer);
         } else {
-					  lcd_i2c_cmd(I2C_1, 0x01);
-					  delay_ms(10);
+		lcd_i2c_cmd(I2C_1, 0x01);
+		delay_ms(10);
             snprintf(buffer, sizeof(buffer), "Stopped");
-					  lcd_i2c_msg(I2C_1, 1, 0, buffer);
+		lcd_i2c_msg(I2C_1, 1, 0, buffer);
         }
         control_leds();
         delay_ms(100); 
@@ -93,11 +91,11 @@ void EXTI1_IRQHandler(void) {
         EXTI->PR = EXTI_PR_PR1;  // Clear interrupt flag
     }
 }
-
+		
 void detect_fall(float x, float y, float z) {
     float magnitude = sqrt(x * x + y * y + z * z);
-
-    if (fall_stage == 1 && fabs(magnitude - prev_magnitude) > IMPACT_THRESHOLD) { 
+	  float calTheshold = fabs(magnitude - prev_magnitude);
+    if (fall_stage == 1 && calTheshold > IMPACT_THRESHOLD ) { 
         fall_stage = 2; 
         fall_start_time = get_tick(); 
     } else if (fall_stage == 2 && magnitude < POST_FALL_THRESHOLD && (get_tick() - fall_start_time) >= FALL_DURATION) {
@@ -108,7 +106,6 @@ void detect_fall(float x, float y, float z) {
         fall_status = FALL;
     }
     prev_magnitude = magnitude;
-		
 }
 
 void init_peripherals(void) {
