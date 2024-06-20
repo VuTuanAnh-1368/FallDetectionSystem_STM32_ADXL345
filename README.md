@@ -1,5 +1,5 @@
 # Fall Detection Device using STM32F03C8T6 and ADXL345 sensor.
-
+  The Fall Detection Device is designed to enhance safety for individuals prone to falls, such as the elderly or those with physical disabilities. By leveraging the capabilities of the STM32F103C8T6 microcontroller and the ADXL345 accelerometer, this device continuously monitors for sudden movements or orientations that indicate a fall.
 ### Project Overview
 This project utilizes the STM32F103C8T6 microcontroller and the ADXL345 accelerometer sensor to detect falls. The system provides real-time status updates and alerts on a 16x02 LCD display and uses LEDs for visual indications of the system's state and alerts.
 
