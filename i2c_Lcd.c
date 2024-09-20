@@ -1,7 +1,7 @@
 #include "i2c_Lcd.h"
 #include "systick.h"
 
-void add_slave(uint8_t i2c, char RW){
+void add_slave_abcxyzt(uint8_t i2c, char RW){
 	i2c_add(i2c, Slave_Address, RW);
 }
 void trans_slave(uint8_t i2c, char data){
