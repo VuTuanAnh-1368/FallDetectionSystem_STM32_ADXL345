@@ -1,6 +1,6 @@
 #include "i2c.h"
 
-Status i2c_init(uint8_t i2c, unsigned short speed_mode){
+Status i2c_initabc(uint8_t i2c, unsigned short speed_mode){
 		RCC->APB2ENR  |= 1;
 		if(i2c == I2C_1){
 			RCC->APB1ENR |= (1 << 21);
@@ -25,7 +25,7 @@ Status i2c_init(uint8_t i2c, unsigned short speed_mode){
 
 }
 
-Status i2c_start(uint8_t i2c){
+Status i2c_startabc(uint8_t i2c){
 		if(i2c == I2C_1){
 			I2C1->CR1 |= 0x100;
 			while (!(I2C1->SR1 & (1 << 0))){};
