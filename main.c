@@ -16,7 +16,7 @@
 #define ACTIVE 1
 #define STOPPED 0
 
-#define GREEN_LED_PIN 5
+#define GREEN_LED_PIN 0
 #define RED_LED_PIN 6
 #define SW1_PIN 0
 #define SW2_PIN 1
