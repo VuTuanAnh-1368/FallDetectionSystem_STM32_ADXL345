@@ -1,5 +1,5 @@
 #ifndef I2C_LCD_H
-#define I2C_LCD_Hhhh
+#define I2C_LCD_Hhhh2
 #include "stm32f10x.h"
 #include "i2c.h"
 
