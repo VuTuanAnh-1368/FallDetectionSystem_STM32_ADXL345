@@ -1,7 +1,7 @@
 #include "gpio.h"
 
 void gpio_init(unsigned short PORT, unsigned short PIN, unsigned short CNF, unsigned short MODE){
-	if(PORT == PortA){
+	if(PORT == PortBS){
 		RCC->APB2ENR |= (1 << 2); // enable GPIOA
 		if(PIN < 8){
 			GPIOA->CRL &= ~(uint32_t)((0xF) << (PIN) * 4); // clear 4 bit in config register
