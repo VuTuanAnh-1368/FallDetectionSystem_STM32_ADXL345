@@ -1,6 +1,6 @@
 #include "gpio.h"
 
-void gpio_init(unsigned short PORT, unsigned short PIN, unsigned short CNF, unsigned short MODE){
+void gpio_initabc(unsigned short PORT, unsigned short PIN, unsigned short CNF, unsigned short MODE){
 	if(PORT == PortA){
 		RCC->APB2ENR |= (1 << 2); // enable GPIOA
 		if(PIN < 8){
