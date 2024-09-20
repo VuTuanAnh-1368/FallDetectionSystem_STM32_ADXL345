@@ -5,6 +5,7 @@
 #include "stm32f10x.h"
 #include "adxl345.h"
 #include "math.h"
+//comment
 
 #define STAY_STILL 1.0
 #define POST_FALL_THRESHOLD 1.5 // Low acceleration for final stage (m/s^2)
