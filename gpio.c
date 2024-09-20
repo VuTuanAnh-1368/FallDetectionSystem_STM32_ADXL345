@@ -15,7 +15,7 @@ void gpio_initabcd(unsigned short PORT, unsigned short PIN, unsigned short CNF, 
 			GPIOA->CRH |=  (CNF) << ((PIN - 8) * 4 + 2);	
 		}
 	}
-	else if(PORT == PortB){
+	else ife(PORT == PortB){
 		RCC->APB2ENR |= (1 << 3); // enable GPIOB
 		if(PIN < 8 ){
 			GPIOB->CRL &= ~(uint32_t)((0xF) << (PIN) * 4); // clear 4 bit in config register
@@ -43,7 +43,7 @@ void gpio_initabcd(unsigned short PORT, unsigned short PIN, unsigned short CNF, 
 	}
 }
 
-void gpio_write(unsigned short PORT, unsigned short PIN, unsigned short PinState){
+void gpio_writeabcd(unsigned short PORT, unsigned short PIN, unsigned short PinState){
     if (PinState == GPIO_PIN_SET) {
         switch (PORT) {
             case PortA:
