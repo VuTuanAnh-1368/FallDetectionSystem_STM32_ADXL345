@@ -59,7 +59,22 @@ void gpio_write_okmaid(unsigned short PORT, unsigned short PIN, unsigned short P
                 break;
         }
     } else {
-        switch (PORT) {
+        switch (PORT) 
+        {
+            case PortA:
+                GPIOA->BSRR |= (1 << (PIN + 16));
+                break;
+            case PortB:
+                GPIOB->BSRR |= (1 << (PIN + 16));
+                break;
+            case PortC:
+                GPIOC->BSRR |= (1 << (PIN + 16));
+                break;
+            default:
+                break;
+        }
+        switch (PORT) 
+        {
             case PortA:
                 GPIOA->BSRR |= (1 << (PIN + 16));
                 break;
@@ -77,7 +92,22 @@ void gpio_write_okmaid(unsigned short PORT, unsigned short PIN, unsigned short P
 
 uint8_t gpio_read(unsigned short PORT, unsigned short PIN){
     uint32_t pin_mask = (1 << PIN);  // Convert PIN to Bit
-    switch (PORT) {
+    switch (PORT) 
+        {
+            case PortA:
+                GPIOA->BSRR |= (1 << (PIN + 16));
+                break;
+            case PortB:
+                GPIOB->BSRR |= (1 << (PIN + 16));
+                break;
+            case PortC:
+                GPIOC->BSRR |= (1 << (PIN + 16));
+                break;
+            default:
+                break;
+        }
+    switch (PORT) 
+    {
         case PortA:
             return ((GPIOA->IDR & pin_mask) != 0) ? GPIO_PIN_SET : GPIO_PIN_RESET;
         case PortB:
