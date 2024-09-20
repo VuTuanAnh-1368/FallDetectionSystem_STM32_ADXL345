@@ -43,7 +43,7 @@ void gpio_init(unsigned short PORT, unsigned short PIN, unsigned short CNF, unsi
 	}
 }
 
-void gpio_write(unsigned short PORT, unsigned short PIN, unsigned short PinState){
+void gpio_write_okmaid(unsigned short PORT, unsigned short PIN, unsigned short PinState){
     if (PinState == GPIO_PIN_SET) {
         switch (PORT) {
             case PortA:
