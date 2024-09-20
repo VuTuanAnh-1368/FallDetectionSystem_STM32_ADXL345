@@ -21,7 +21,7 @@
 #define SW1_PIN 0
 #define SW2_PIN 1
 
-//111olatile uint8_t system_state = STOPPED; 
+Volatile char system_state = STOPPED; 
 volatile uint8_t fall_status = NORMAL; 
 volatile uint8_t fall_stage = 1;
 float prev_magnitude = 1.0;
